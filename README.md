@@ -1,4 +1,6 @@
-# angularRobe
+# angular-robe
+
+>* [@SamuelRyzycki](//twitter.com/SamuelRyzycki) modifications of the generator output of generator-hottowel by [@john_papa](//twitter.com/john_papa). You can choose between SASS and LESS preprocessor.*
 
 **Generated from HotTowel Angular**
 
