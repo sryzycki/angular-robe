@@ -115,18 +115,18 @@ gulp.task('images', ['clean-images'], function() {
 
 //TODO: for testing
 //gulp.task('less', function() {
-//    gulp.watch(config.less, ['styles']);
+//    gulp.watch(config.stylesheets, ['styles']);
 //});
 
 /**
- * Compile less to css
+ * Compile stylesheets to css
  * @return {Stream}
  */
 gulp.task('styles', ['clean-styles'], function() {
-    log('Compiling Less --> CSS');
+    log('Compiling stylesheets --> CSS');
 
     return gulp
-        .src(config.less)
+        .src(config.stylesheets)
         .pipe($.plumber())
         .pipe($.less())
 //        .on('error', errorLogger) // more verbose and dupe output. requires emit.
@@ -352,12 +352,12 @@ gulp.task('bump', function() {
  */
 function addWatchForFileReload(isDev) {
     if (isDev) {
-        gulp.watch([config.less], ['styles', browserSync.reload]);
-        gulp.watch([config.client + '**/*', '!' + config.less], browserSync.reload)
+        gulp.watch([config.stylesheets], ['styles', browserSync.reload]);
+        gulp.watch([config.client + '**/*', '!' + config.stylesheets], browserSync.reload)
             .on('change', function(event) { changeEvent(event); });
     }
     else {
-        gulp.watch([config.less, config.js, config.html], ['html', browserSync.reload])
+        gulp.watch([config.stylesheets, config.js, config.html], ['html', browserSync.reload])
             .on('change', function(event) { changeEvent(event); });
     }
 }

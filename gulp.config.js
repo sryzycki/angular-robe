@@ -11,7 +11,7 @@ module.exports = function() {
         server: server,
         source: 'src/',
         htmltemplates: clientApp + '/**/*.html',
-        less: client + '/styles/styles.less',
+        stylesheets: client + '/styles/*.*',
         html: client + '/**/*.html',
         index: client + '/index.html',
         js: [
