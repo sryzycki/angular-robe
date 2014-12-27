@@ -123,7 +123,8 @@ gulp.task('images', ['clean-images'], function() {
  * @return {Stream}
  */
 gulp.task('styles', ['clean-styles'], function() {
-    log('Compiling ' + $.if(config.useSass, 'SASS', 'LESS') +' --> CSS');
+    // Log what preprocessor is used.
+    log('Compiling ' + $.if(config.useSass, 'SASS', 'LESS') + ' --> CSS');
 
     return gulp
         .src(config.stylesheets)
