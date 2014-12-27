@@ -123,12 +123,12 @@ gulp.task('images', ['clean-images'], function() {
  * @return {Stream}
  */
 gulp.task('styles', ['clean-styles'], function() {
-    log('Compiling stylesheets --> CSS');
+    log('Compiling ' + $.if(config.useSass, 'SASS', 'LESS') +' --> CSS');
 
     return gulp
         .src(config.stylesheets)
         .pipe($.plumber())
-        .pipe($.less())
+        .pipe($.if(config.useSass, $.sass(), $.less()))// Use SASS if config.useSass returns true, otherwise LESS.
 //        .on('error', errorLogger) // more verbose and dupe output. requires emit.
         .pipe($.autoprefixer('last 2 version', '> 5%'))
         .pipe(gulp.dest(config.temp));

@@ -3,7 +3,10 @@ module.exports = function() {
     var server = './src/server/';
     var clientApp = client + 'app/';
     var root = './';
+    var useSass = true; // Set to "false" to compile with LESS.
     var specRunnerFile = 'specs.html';
+
+    //////////////////////////////////////////////////
 
     var config = {
         root: root,
@@ -11,6 +14,7 @@ module.exports = function() {
         server: server,
         source: 'src/',
         htmltemplates: clientApp + '/**/*.html',
+        useSass: useSass,
         stylesheets: client + '/styles/*.*',
         html: client + '/**/*.html',
         index: client + '/index.html',
